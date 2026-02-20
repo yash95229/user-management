@@ -31,6 +31,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public void registerUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        long count = userRepository.count();
+        if(count == 0){
+            user.setRole("ROLE_ADMIN");
+        }else {
+            user.setRole("ROLE_USER");
+        }
         userRepository.save(user);
     }
 

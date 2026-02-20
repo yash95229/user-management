@@ -33,4 +33,14 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/user/profile")
+    public String profile() {
+        return "User profile";
+    }
+
+    @GetMapping("/admin/dashboard")
+    public String dashborad(){
+        return "dashboard";
+    }
+
 }
